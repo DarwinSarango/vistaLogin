@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportboard - Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="split-login-wrapper">
+        <div class="split-visual-panel">
+            <div class="split-visual-bg-carousel">
+                <img src="https://unl.edu.ec/sites/default/files/galeria/2022/02/b.jpg" class="carousel-img active" alt="Campus UNL">
+                <img src="https://unl.edu.ec/sites/default/files/inline-images/023.jpg" class="carousel-img" alt="Edificio UNL">
+                <img src="https://www.unl.edu.ec/sites/default/files/noticia/2024-02/bc64e325-3abc-4641-b410-444ee04fdae2.jpg" class="carousel-img" alt="Patio UNL">
+            </div>
+            <div class="split-visual-content">
+                <img src="https://scontent.floh1-1.fna.fbcdn.net/v/t39.30808-6/347615675_1431911210953121_4252996383138763769_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Edt1JzyoJtEQ7kNvwEjHzxY&_nc_oc=AdkN7AT0AItOKwQnY2F_tVql_uvufYDN34HPeSdsvM_Pp4LABKAZiR6OuQRCuH94RmQ&_nc_zt=23&_nc_ht=scontent.floh1-1.fna&_nc_gid=WuXgiHnO-E9ka12XXdOypg&oh=00_AfPe88DJY9-ss1aDhe4vAXOSoroly-yzZqnNCmTJlIFJ8Q&oe=6857ACD0" alt="Logo UNL" class="split-visual-logo">
+            </div>
+        </div>
+        <div class="split-form-panel">
+            <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+                <h1 class="login-title">Inicia Sesión</h1>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Usuario" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <span>Ingresar</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="social-login">
+                    <p>O ingresa con:</p>
+                    <div class="social-buttons">
+                        <button type="button" class="social-btn google" aria-label="Ingresar con Google">
+                            <i class="fab fa-google"></i>
+                        </button>
+                        <button type="button" class="social-btn facebook" aria-label="Ingresar con Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button type="button" class="social-btn apple" aria-label="Ingresar con Apple">
+                            <i class="fab fa-apple"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (username && password) {
+                localStorage.setItem('username', username);
+                const btn = document.querySelector('.login-btn');
+                btn.classList.add('loading');
+                setTimeout(() => {
+                    document.querySelector('.split-form-panel').style.opacity = '0';
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 500);
+                }, 1000);
+            }
+        }
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', () => {
+                if (!input.value) {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+            if (input.value) {
+                input.parentElement.classList.add('focused');
+            }
+        });
+        // Carrusel de imágenes visual
+        let currentImg = 0;
+        const imgs = document.querySelectorAll('.carousel-img');
+        setInterval(() => {
+            imgs[currentImg].classList.remove('active');
+            currentImg = (currentImg + 1) % imgs.length;
+            imgs[currentImg].classList.add('active');
+        }, 5000);
+    </script>
+</body>
+</html>

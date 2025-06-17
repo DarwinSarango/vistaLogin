@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportboard - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <!-- Botón de menú móvil -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Barra lateral -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="https://scontent.floh1-1.fna.fbcdn.net/v/t39.30808-6/347615675_1431911210953121_4252996383138763769_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Edt1JzyoJtEQ7kNvwEjHzxY&_nc_oc=AdkN7AT0AItOKwQnY2F_tVql_uvufYDN34HPeSdsvM_Pp4LABKAZiR6OuQRCuH94RmQ&_nc_zt=23&_nc_ht=scontent.floh1-1.fna&_nc_gid=WuXgiHnO-E9ka12XXdOypg&oh=00_AfPe88DJY9-ss1aDhe4vAXOSoroly-yzZqnNCmTJlIFJ8Q&oe=6857ACD0" alt="UNL Logo" class="sidebar-logo">
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+
+        <ul class="menu-items">
+            <li class="menu-item active">
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#perfil">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#eventos">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Eventos</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#noticias">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Noticias</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#configuracion">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Cerrar Sesión</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Bienvenido, <span id="userName">qsqs</span>!</h1>
+            </div>
+            <div class="user-profile">
+                <div class="notifications-container">
+                    <i class="fas fa-bell notifications"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="profile-section">
+                    <img src="assets/default-avatar.png" alt="Perfil" class="avatar">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card stat-yellow">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Eventos Próximos</h3>
+                <p class="stat-number">5</p>
+            </div>
+            <div class="stat-card stat-blue">
+                <i class="fas fa-running"></i>
+                <h3>Clases Activas</h3>
+                <p class="stat-number">3</p>
+            </div>
+            <div class="stat-card stat-green">
+                <i class="fas fa-check-circle"></i>
+                <h3>Asistencia</h3>
+                <p class="stat-number">85%</p>
+            </div>
+            <div class="stat-card stat-red">
+                <i class="fas fa-trophy"></i>
+                <h3>Logros</h3>
+                <p class="stat-number">12</p>
+            </div>
+        </div>
+
+        <section class="recent-activities">
+            <h2>Actividades Recientes</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <i class="fas fa-futbol"></i>
+                    <div class="activity-info">
+                        <h4>Entrenamiento de Fútbol</h4>
+                        <p>Hoy - 15:00</p>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <i class="fas fa-basketball-ball"></i>
+                    <div class="activity-info">
+                        <h4>Torneo de Básquet</h4>
+                        <p>Mañana - 10:00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/sidebar.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('userName').textContent = username;
+            }
+
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                }, index * 100);
+            });
+
+            const activities = document.querySelectorAll('.activity-item');
+            activities.forEach((activity, index) => {
+                setTimeout(() => {
+                    activity.classList.add('animate-in');
+                }, (cards.length * 100) + (index * 100));
+            });
+        });
+    </script>
+</body>
+</html>

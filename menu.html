@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sportboard - Menú</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="menu-page">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/sportboard-logo.png" alt="Sportboard" class="sidebar-logo">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="menu-items">
+            <li class="menu-item active">
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#perfil">
+                    <i class="fas fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#eventos">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Eventos</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#noticias">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Noticias</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#configuracion">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Cerrar Sesión</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="content-area">
+            <!-- El contenido dinámico se cargará aquí -->
+            <h1>Selecciona una opción del menú</h1>
+        </div>
+    </main>
+
+    <script src="js/menu.js"></script>
+</body>
+</html>
