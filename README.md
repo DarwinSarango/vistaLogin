@@ -1,5 +1,9 @@
 # Sportboard - App Deportiva Universitaria
 
+![image](https://github.com/user-attachments/assets/93f54942-b1c4-41c8-8b08-9381784dbd3e)
+
+
+
 ## Descripción del Proyecto
 
 Sportboard es una aplicación web diseñada específicamente para los estudiantes de la Universidad Nacional de Loja, enfocada en la gestión y participación en actividades deportivas universitarias. La aplicación proporciona una interfaz moderna y fácil de usar para acceder a eventos deportivos, clases y estadísticas personales.
@@ -34,13 +38,6 @@ Sportboard es una aplicación web diseñada específicamente para los estudiante
 ## Estructura del Proyecto
 
 \`\`\`
-sportboard/
-│
-├── assets/
-│   ├── unl-logo.png
-│   ├── sportboard-logo.png
-│   └── default-avatar.png
-│
 ├── css/
 │   └── styles.css
 │
