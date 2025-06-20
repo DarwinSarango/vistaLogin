@@ -2,6 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/93f54942-b1c4-41c8-8b08-9381784dbd3e)
 
+![image](https://github.com/user-attachments/assets/c5e16dd7-db1c-45a9-a2ec-61e0cfc7d4f0)
 
 
 ## Descripción del Proyecto
